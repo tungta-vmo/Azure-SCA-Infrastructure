@@ -44,3 +44,17 @@ resource "azurerm_storage_container" "init_state" {
   storage_account_name = azurerm_storage_account.init.name
   container_access_type = "private"
 }
+
+resource "azurerm_storage_account" "init_workload" {
+  account_replication_type = "LRS"
+  account_tier             = "Standard"
+  location                 = var.location
+  name                     = "workloadtfstate2tyson"
+  resource_group_name      = azurerm_resource_group.this.name
+}
+
+resource "azurerm_storage_container" "init_workload" {
+  name                 = "initworkload"
+  storage_account_name = azurerm_storage_account.init_workload.name
+  container_access_type = "private"
+}

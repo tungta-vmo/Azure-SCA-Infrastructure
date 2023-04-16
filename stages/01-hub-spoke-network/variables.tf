@@ -3,9 +3,16 @@ variable "location" {
   default = "eastasia"
 }
 
-variable "resource_group_name" {
+variable "hub_resource_group_name" {
   type = string
-  default = "sca"
+  description = "The hub resource group name"
+  default = "hub-rg-0"
+}
+
+variable "spoke_resource_group_name" {
+  type = string
+  description = "The spoke resource group name"
+  default = "spoke-rg-0"
 }
 
 variable "hub_vnet_name" {
@@ -16,24 +23,4 @@ variable "hub_vnet_name" {
 variable "spoke_vnet_name" {
   type = string
   default = "spoke-vnet"
-}
-
-variable "hub_subnet_name" {
-  type = string
-  default = "hub-subnet"
-}
-
-variable "spoke_subnet_name" {
-  type = string
-  default = "spoke-subnet"
-}
-
-variable "hub_nsg_name" {
-  type = string
-  default = "hub-nsg"
-}
-
-variable "hub_firewall_name" {
-  type = string
-  default = "hub-firewall"
 }
